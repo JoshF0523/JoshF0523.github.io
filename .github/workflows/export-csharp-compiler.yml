@@ -1,0 +1,43 @@
+name: Export Portable CSharp Compiler
+
+on:
+  push:
+    paths:
+      - '.github/workflows/export-csharp-compiler.yml'
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build portable compiler bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          SDK="$(dotnet --version)"
+          RUNTIME="$(dotnet --list-runtimes | awk '/Microsoft.NETCore.App/ {v=$2} END {print v}')"
+          echo "SDK=$SDK RUNTIME=$RUNTIME"
+          ROOT="$GITHUB_WORKSPACE/portable-csharp"
+          mkdir -p "$ROOT/dotnet/sdk/$SDK/Roslyn" "$ROOT/dotnet/shared/Microsoft.NETCore.App" "$ROOT/net48"
+          cp /usr/share/dotnet/dotnet "$ROOT/dotnet/"
+          cp -a /usr/share/dotnet/host "$ROOT/dotnet/"
+          cp -a "/usr/share/dotnet/shared/Microsoft.NETCore.App/$RUNTIME" "$ROOT/dotnet/shared/Microsoft.NETCore.App/"
+          cp -a "/usr/share/dotnet/sdk/$SDK/Roslyn/bincore" "$ROOT/dotnet/sdk/$SDK/Roslyn/"
+          curl -fsSL -o "$GITHUB_WORKSPACE/net48.nupkg" "https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg"
+          unzip -q "$GITHUB_WORKSPACE/net48.nupkg" -d "$GITHUB_WORKSPACE/net48pkg"
+          cp -a "$GITHUB_WORKSPACE/net48pkg/build/.NETFramework/v4.8/." "$ROOT/net48/"
+          printf '%s\n' "$SDK" > "$ROOT/SDK_VERSION.txt"
+          printf '%s\n' "$RUNTIME" > "$ROOT/RUNTIME_VERSION.txt"
+          cat > "$ROOT/test.cs" <<'EOF'
+          using System;
+          class T { static void Main() { Console.WriteLine("compiler ok"); } }
+          EOF
+          "$ROOT/dotnet/dotnet" "$ROOT/dotnet/sdk/$SDK/Roslyn/bincore/csc.dll" -nologo -noconfig -nostdlib -target:exe -out:"$ROOT/test.exe" -r:"$ROOT/net48/mscorlib.dll" -r:"$ROOT/net48/System.dll" "$ROOT/test.cs"
+          test -s "$ROOT/test.exe"
+          rm "$ROOT/test.cs" "$ROOT/test.exe"
+      - name: Upload compiler bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: portable-csharp-compiler
+          path: portable-csharp
+          compression-level: 6
