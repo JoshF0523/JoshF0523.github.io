@@ -1,0 +1,228 @@
+ion of tools and utilities I have developed.</p>
+    </div>
+
+    <div class="overview-featured-grid">
+      <article class="overview-featured-card">
+        <button class="overview-featured-shot" onclick="openShot('bill','Monthly Bill Calendar')">
+          <img src="about:blank" data-img="1" alt="Monthly Bill Calendar">
+        </button>
+        <div class="overview-featured-body">
+          <h3>Monthly Bill Calendar</h3>
+          <p>A paycheck-first budgeting app for planning recurring bills, tracking history, coordinating shared household finances across phones, and verifying emailed bill amounts so the correct upcoming bill cycle can be updated automatically.</p>
+          <span class="overview-featured-link" onclick="showTab('projects')">View project details →</span>
+        </div>
+      </article>
+
+      <article class="overview-featured-card">
+        <button class="overview-featured-shot" onclick="openShot('inventory','Warehouse / QR Inventory Manager')">
+          <img src="about:blank" data-img="2" alt="Warehouse Inventory Manager">
+        </button>
+        <div class="overview-featured-body">
+          <h3>Warehouse / QR Inventory Manager</h3>
+          <p>A fast warehouse quantity-management workflow using QR codes, phone scanning, USB scanners, and shared inventory data.</p>
+          <span class="overview-featured-link" onclick="showTab('projects')">View project details →</span>
+        </div>
+      </article>
+
+      <article class="overview-featured-card">
+        <button class="overview-featured-shot" onclick="openShot('menusys','Menusys Management Tool')">
+          <img src="about:blank" data-img="3" alt="Menusys Management Tool">
+        </button>
+        <div class="overview-featured-body">
+          <h3>Menusys Management Tool</h3>
+          <p>A centralized Windows utility for backing up and comparing MenuSys files across all active POS systems, reviewing differences, importing or exporting configurations when needed, editing a selected target MenuSys, deploying the edited version only to selected POS systems that originally supplied that MenuSys, verifying results, and performing controlled POS restarts to apply uploaded changes—all from one interface. The tool records file hash details and source-lane history so it can prevent an operator from overwriting an important lane with a different MenuSys configuration, such as an office or specialty lane.</p>
+          <span class="overview-featured-link" onclick="showTab('projects')">View project details →</span>
+        </div>
+      </article>
+      <article class="overview-featured-card">
+        <button class="overview-featured-shot" onclick="openShot('rpin','Remote PINPAD Maintenance Utility')">
+          <img src="about:blank" data-img="4" alt="Remote PINPAD Maintenance Utility">
+        </button>
+        <div class="overview-featured-body">
+          <h3>Remote PINPAD Maintenance Utility</h3>
+          <p>A remote multi-lane PIN pad maintenance and loader workflow that coordinates device loading, POS process state, protection-state handling, and final recovery from one controller.</p>
+          <span class="overview-featured-link" onclick="showTab('projects')">View project details →</span>
+        </div>
+      </article>
+
+    </div>
+    <div class="overview-projects-cta">
+      <button onclick="showTab('projects')">Explore all projects & tools →</button>
+    </div>
+  </div>
+
+  <div class="container approach">
+    <div class="kicker">// How I Build</div>
+    <h2>Simple interfaces. Reliable automation.</h2>
+    <p>My tools are designed around the operator using them. The goal is to remove repetitive manual steps without hiding important status, state changes, or verification from the person responsible for the result.</p>
+    <div class="principles">
+      <div class="principle"><b>01</b><span>Discover before acting</span></div>
+      <div class="principle"><b>02</b><span>Verify state changes</span></div>
+      <div class="principle"><b>03</b><span>Keep targets independent</span></div>
+      <div class="principle"><b>04</b><span>Use clear operator status</span></div>
+      <div class="principle"><b>05</b><span>Fail safely</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-projects" class="tab-panel">
+  <div class="container projects-wrap">
+    <div class="projects-head">
+      <div class="kicker">// Projects</div>
+      <h2>Software & operational tools</h2>
+      <p>All portfolio projects are grouped here. The flagship projects highlight the broader end-to-end applications and remote maintenance workflows I am most proud of. The Systems & Operations section contains the rest of the specialized utilities built for diagnostics, deployment, hardware maintenance, configuration, and data processing.</p>
+    </div>
+
+    <div class="group-title"><h2>Flagship Projects</h2><span>4 projects</span></div>
+    <div class="flag-grid">
+    <article class="flag-card">
+      <button class="flag-shot" onclick="openShot('bill','Monthly Bill Calendar')">
+        <img src="about:blank" data-img="1" width="726" height="1536" alt="Monthly Bill Calendar">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="flag-body">
+        <h3>Monthly Bill Calendar</h3>
+        <p>A mobile-first budgeting app built around the paycheck that should fund each bill, rather than only the bill’s due date. It supports separate people, recurring bills, paycheck planning, payment history, editable amounts, and shared household use across phones. It also verifies bill amounts when new statements are generated and emailed, then automatically updates the amount on the bill cycle where that payment belongs so upcoming paycheck plans stay aligned with the actual bill amount.</p>
+        <div class="tags"><span>PWA</span><span>Supabase</span><span>Vercel</span><span>Pay-cycle Logic</span><span>Shared Mobile Use</span></div>
+        
+        <div class="mini-gallery">
+          <button onclick="openShot('bill','Monthly Bill Calendar — Planner')"><img src="about:blank" data-img="1" alt="Planner"></button>
+          <button onclick="openShot('bill_history','Monthly Bill Calendar — History')"><img src="about:blank" data-img="5" alt="History"></button>
+          <button onclick="openShot('bill_settings','Monthly Bill Calendar — Settings')"><img src="about:blank" data-img="6" alt="Settings"></button>
+        </div>
+        
+      </div>
+    </article>
+    
+    <article class="flag-card">
+      <button class="flag-shot" onclick="openShot('inventory','Warehouse / QR Inventory Manager')">
+        <img src="about:blank" data-img="2" width="1122" height="752" alt="Warehouse / QR Inventory Manager">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="flag-body">
+        <h3>Warehouse / QR Inventory Manager</h3>
+        <p>A warehouse inventory tool designed for fast quantity changes without turning the workflow into a full POS system. It combines printable QR labels, phone scanning, USB HID scanner support, Windows desktop use, and shared Google Sheet quantity updates.</p>
+        <div class="tags"><span>QR</span><span>Google Sheets</span><span>Apps Script</span><span>Windows</span><span>USB Scanners</span></div>
+        
+      </div>
+    </article>
+    
+    <article class="flag-card">
+      <button class="flag-shot" onclick="openShot('menusys','Menusys Management Tool')">
+        <img src="about:blank" data-img="3" width="1536" height="928" alt="Menusys Management Tool">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="flag-body">
+        <h3>Menusys Management Tool</h3>
+        <p>A centralized Windows utility for backing up and comparing MenuSys files across all active POS systems, reviewing differences, importing or exporting configurations when needed, editing a selected target MenuSys, deploying the edited version only to selected POS systems that originally supplied that MenuSys, verifying results, and performing controlled POS restarts to apply uploaded changes—all from one interface. The tool records file hash details and source-lane history so it can prevent an operator from overwriting an important lane with a different MenuSys configuration, such as an office or specialty lane.</p>
+        <div class="tags"><span>Windows GUI</span><span>Configuration</span><span>Comparison</span><span>Deployment</span><span>Verification</span></div>
+        
+      </div>
+    </article>
+    
+    <article class="flag-card">
+      <button class="flag-shot" onclick="openShot('rpin','Remote PINPAD Maintenance Utility')">
+        <img src="about:blank" data-img="4" alt="Remote PINPAD Maintenance Utility">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="flag-body">
+        <h3>Remote PINPAD Maintenance Utility</h3>
+        <p>A multi-lane remote PIN pad loader and maintenance controller. It coordinates POS process state, device configuration and loading, protection-state handling, per-lane status, and the final return-to-normal sequence so a complex maintenance job can be managed from one interface.</p>
+        <div class="tags"><span>Remote Control</span><span>Payment Hardware</span><span>Multi-Lane</span><span>Loader Workflow</span><span>Recovery</span></div>
+      </div>
+    </article>
+</div>
+
+    <div class="group-title"><h2>Systems & Operations</h2><span>8 projects</span></div>
+    <div class="project-grid">
+    <article class="project-card">
+      <button class="project-shot" onclick="openShot('pos','POS Scan Utility 1.0')">
+        <img src="about:blank" data-img="7" width="1228" height="822" alt="POS Scan Utility 1.0">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>POS Scan Utility 1.0</h3>
+        <p>A centralized support console for multi-POS diagnostics. The utility groups scans by category—including benefit cards, system health, software and lane tools, loyalty, and equipment—so technicians can run focused checks, review results in one place, and export findings for later analysis.</p>
+        <div class="tags"><span>Diagnostics</span><span>Multi-POS</span><span>Windows</span><span>Health Checks</span><span>Export</span></div>
+      </div>
+    </article>
+    
+    <article class="project-card">
+      <button class="project-shot" onclick="openShot('log','Log / File Collector')">
+        <img src="about:blank" data-img="8" width="1106" height="740" alt="Log / File Collector">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>Log / File Collector</h3>
+        <p>A remote troubleshooting utility that gathers the most useful current POS logs and configuration files into a clean ZIP package. It reduces manual file hunting by collecting selected files, applying date filtering where needed, and presenting a clear per-lane collection status.</p>
+        <div class="tags"><span>Remote Files</span><span>Diagnostics</span><span>ZIP Packaging</span><span>Filtering</span><span>Windows</span></div>
+      </div>
+    </article>
+    
+    <article class="project-card">
+      <button class="project-shot" onclick="openShot('hb','Healthy Benefits Upgrade Utility V1')">
+        <img src="about:blank" data-img="9" width="1066" height="774" alt="Healthy Benefits Upgrade Utility V1">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>Healthy Benefits Upgrade Utility V1</h3>
+        <p>A guided multi-POS deployment tool for upgrading Healthy Benefits software across selected lanes. It combines lane discovery, upgrade selection, Solidcore status checking, package management, and post-upgrade HB verification in one operator-focused workflow.</p>
+        <div class="tags"><span>Deployment</span><span>Multi-POS</span><span>Status Checks</span><span>Package Manager</span><span>Verification</span></div>
+      </div>
+    </article>
+    
+    <article class="project-card">
+      <button class="project-shot" onclick="openShot('sp','Service Pack Upgrade Utility')">
+        <img src="about:blank" data-img="10" width="1536" height="990" alt="Service Pack Upgrade Utility">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>Service Pack Upgrade Utility</h3>
+        <p>A service-pack deployment controller for both server and POS targets. It organizes versions and service packs, stages the correct payload, tracks each target through installation and reboot phases, and provides a consistent status model so operators can see exactly where each system stands.</p>
+        <div class="tags"><span>Deployment</span><span>Servers</span><span>POS</span><span>Reboot Tracking</span><span>State Management</span></div>
+      </div>
+    </article>
+    
+    <article class="project-card">
+      <button class="project-shot" onclick="openShot('fw','5916 Firmware Flash Utility')">
+        <img src="about:blank" data-img="11" width="976" height="784" alt="5916 Firmware Flash Utility">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>5916 Firmware Flash Utility</h3>
+        <p>A remote maintenance tool for NCR 5916 firmware. It begins with an all-active-POS status scan, identifies firmware state before any write, limits updates to approved targets, handles the update workflow, verifies results, and supports controlled shutdown selection afterward.</p>
+        <div class="tags"><span>Firmware</span><span>Hardware</span><span>Remote Maintenance</span><span>Pre-scan</span><span>Verification</span></div>
+      </div>
+    </article>
+    
+    <article class="project-card">
+      <button class="project-shot" onclick="openShot('pin','Pinpad Maintenance Utility')">
+        <img src="about:blank" data-img="12" width="754" height="562" alt="Pinpad Maintenance Utility">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>Pinpad Maintenance Utility</h3>
+        <p>A local payment-device maintenance utility that brings common PIN pad support tasks into a staged GUI. It helps operators inspect lane parameters, apply configuration changes, load device content, perform encryption-related steps, and verify the resulting device state.</p>
+        <div class="tags"><span>Payment Hardware</span><span>Drivers</span><span>Configuration</span><span>Local Maintenance</span><span>Verification</span></div>
+      </div>
+    </article>
+<article class="project-card">
+      <button class="project-shot" onclick="openShot('cfg','S4 Healthy Benefits CFG Deployment Utility')">
+        <img src="about:blank" data-img="13" width="808" height="731" alt="S4 Healthy Benefits CFG Deployment Utility">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>S4 Healthy Benefits CFG Deployment Utility</h3>
+        <p>A focused configuration lifecycle tool for S4 Healthy Benefits. It discovers a qualifying source lane, launches the configuration editor, then lets the operator select deployment targets and distribute the edited CFG while keeping the deployment scope clear and controlled.</p>
+        <div class="tags"><span>Configuration</span><span>Source Discovery</span><span>Selected Deployment</span><span>Windows</span><span>Validation</span></div>
+      </div>
+    </article>
+    
+    <article class="project-card">
+      <button class="project-shot" onclick="openShot('map','Mapping Utility')">
+        <img src="about:blank" data-img="14" width="1182" height="790" alt="Mapping Utility">
+        <span class="view-label">View screenshot ↗</span>
+      </button>
+      <div class="project-body">
+        <h3>Mapping Utility</h3>
+        <p>A data-processing utility that converts 120-day item history into condensed eligible-item mapping ranges. It appl
