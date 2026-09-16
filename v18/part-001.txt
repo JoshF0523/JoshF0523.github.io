@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Josh Floyd — Software Portfolio</title>
+<meta name="description" content="Josh Floyd — Business automation, Windows systems, operational utilities, and practical software.">
+<style>
+:root {
+  --bg:#f5f7fa; --surface:#ffffff; --surface2:#edf3f7; --surface3:#f9fbfc;
+  --text:#102235; --muted:#617589; --border:#d7e0e7; --accent:#087f8c; --accent2:#0a68bf;
+  --nav:rgba(245,247,250,.92); --shadow:0 14px 40px rgba(20,45,68,.09);
+}
+html[data-theme="dark"] {
+  --bg:#08111d; --surface:#101b2b; --surface2:#132338; --surface3:#0d1725;
+  --text:#eef5fb; --muted:#93a9be; --border:#203750; --accent:#2bd2c3; --accent2:#55aaff;
+  --nav:rgba(8,17,29,.92); --shadow:0 16px 48px rgba(0,0,0,.26);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.62 "Segoe UI",Arial,sans-serif}
+button{font:inherit}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,calc(100% - 34px));margin:auto}
+nav{position:sticky;top:0;z-index:50;background:var(--nav);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.navbar{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:.08em;color:var(--accent)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.tab-nav{display:flex;gap:6px;padding:4px;background:var(--surface2);border:1px solid var(--border);border-radius:999px}
+.tab-btn{border:0;background:transparent;color:var(--muted);padding:8px 15px;border-radius:999px;font-weight:700;cursor:pointer}
+.tab-btn.active{background:var(--surface);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.theme{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:8px 12px;cursor:pointer}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.hero{padding:88px 0 68px;display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+.kicker{font:700 13px Consolas,monospace;letter-spacing:.13em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(48px,7vw,78px);line-height:1;margin:14px 0 20px;letter-spacing:-.045em}
+.hero p{font-size:20px;color:var(--muted);max-width:650px}
+.hero-card{background:linear-gradient(145deg,var(--surface),var(--surface2));border:1px solid var(--border);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+.hero-card h3{margin:0 0 14px;font-size:22px}
+.hero-card ul{margin:0;padding-left:20px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);background:var(--surface);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:72px}
+.stat{padding:24px 26px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:0}
+.stat strong{display:block;color:var(--accent);font-size:25px}
+.stat span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.approach{padding:0 0 82px}
+.approach h2,.projects-head h2{font-size:38px;margin:8px 0 10px;letter-spacing:-.03em}
+.approach > p,.projects-head > p{color:var(--muted);max-width:760px}
+.principles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:26px}
+.principle{background:var(--surface);border:1px solid var(--border);border-radius:17px;padding:20px}
+.principle b{display:block;color:var(--accent);font-size:12px;margin-bottom:6px}
+.principle span{font-weight:700}
+.projects-wrap{padding:70px 0 84px}
+.projects-head{margin-bottom:32px}
+.group-title{display:flex;align-items:center;gap:12px;margin:42px 0 18px}
+.group-title h2{font-size:28px;margin:0}
+.group-title span{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:5px 9px;border-radius:999px}
+.flag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.flag-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.flag-shot{position:relative;display:flex;width:100%;height:235px;align-items:center;justify-content:center;overflow:auto;border:0;background:#0a121d;padding:10px;cursor:zoom-in}
+.flag-shot img{display:block;width:auto!important;height:auto!important;max-width:100%;max-height:100%;object-fit:contain;filter:none!important;transform:none!important}
+.flag-body{padding:20px}
+.flag-body h3{margin:0 0 8px;font-size:22px}
+.flag-body p{margin:0;color:var(--muted);font-size:15px;line-height:1.62}
+.mini-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.mini-gallery button{height:86px;border:1px solid var(--border);background:#0a121d;border-radius:9px;padding:5px;overflow:hidden;cursor:zoom-in}
+.mini-gallery img{display:block;width:auto!important;height:auto!important;max-width:100%;max-height:100%;margin:auto;filter:none!important}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.tags span{font-size:11px;font-weight:700;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 33%,var(--border));background:color-mix(in srgb,var(--accent) 8%,transparent);padding:5px 8px;border-radius:999px}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.project-card{display:grid;grid-template-columns:43% 57%;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);min-height:290px}
+.project-shot{position:relative;display:flex;align-items:center;justify-content:center;overflow:auto;border:0;background:#0a121d;padding:10px;cursor:zoom-in}
+.project-shot img{display:block;width:auto!important;height:auto!important;max-width:100%;max-height:100%;object-fit:contain;filter:none!important;transform:none!important}
+.project-body{padding:20px 20px 18px}
+.project-body h3{font-size:20px;margin:0 0 7px}
+.project-body p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+.view-label{position:absolute;right:10px;bottom:10px;background:rgba(3,10,18,.82);color:white;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:700}
+.note{margin-top:26px;padding:15px 17px;background:var(--surface);border:1px solid var(--border);border-radius:14px;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:36px 0;color:var(--muted)}
+.modal{position:fixed;inset:0;display:none;background:rgba(0,0,0,.94);z-index:100;padding:20px;overflow:hidden}
+.modal.open{display:flex;flex-direction:column}
+.modalbar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;background:#0c1420;color:#fff;border:1px solid #26394e;border-radius:12px;padding:11px 14px;margin-bottom:16px}
+.close{background:#172438;color:#fff;border:1px solid #30445d;border-radius:999px;padding:7px 11px;cursor:pointer}
+.full-native{flex:1 1 auto;min-height:0;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.full-native img{display:block;width:auto!important;height:auto!important;max-width:92vw!important;max-height:calc(100vh - 120px)!important;object-fit:contain;filter:none!important;transform:none!important;image-rendering:auto}
+@media(max-width:980px){
+  .flag-grid{grid-template-columns:1fr}
+  .project-grid{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
+  .principles{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  .navbar{height:auto;padding:12px 0;align-items:flex-start;gap:12px;flex-direction:column}
+  .nav-right{width:100%;justify-content:space-between}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
+  .project-card{grid-template-columns:1fr}
+  .project-shot{height:240px}
+  .principles{grid-template-columns:1fr}
+}
+
+.overview-featured{padding:0 0 76px}
+.overview-featured-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}
+.overview-featured-head h2{font-size:34px;margin:6px 0 0;letter-spacing:-.03em}
+.overview-featured-head p{margin:0;color:var(--muted);max-width:620px}
+.overview-featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.overview-featured-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.overview-featured-shot{display:flex;width:100%;height:190px;align-items:center;justify-content:center;overflow:hidden;border:0;background:#0a121d;padding:9px;cursor:zoom-in}
+.overview-featured-shot img{display:block;width:auto!important;height:auto!important;max-width:100%;max-height:100%;object-fit:contain;filter:none!important;transform:none!important}
+.overview-featured-body{padding:17px}
+.overview-featured-body h3{font-size:20px;margin:0 0 7px}
+.overview-featured-body p{font-size:14px;line-height:1.55;color:var(--muted);margin:0}
+.overview-featured-link{margin-top:14px;display:inline-block;color:var(--accent2);font-weight:700;font-size:14px;cursor:pointer}
+@media(max-width:1100px){.overview-featured-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.overview-featured-grid{grid-template-columns:1fr}.overview-featured-head{align-items:flex-start;flex-direction:column}}
+
+
+.background-section{padding:0 0 76px}
+.background-card{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+.background-card h2{font-size:34px;margin:8px 0 12px;letter-spacing:-.03em}
+.background-card p{color:var(--muted);font-size:17px;margin:0}
+.background-points{display:grid;gap:12px}
+.background-point{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:15px 16px}
+.background-point b{display:block;color:var(--accent);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.background-point span{font-weight:700}
+@media(max-width:980px){.background-card{grid-template-columns:1fr}}
+
+
+.overview-projects-cta{margin-top:22px;display:flex;justify-content:flex-end}
+.overview-projects-cta button{border:1px solid var(--border);background:var(--surface);color:var(--accent2);font-weight:800;border-radius:999px;padding:10px 16px;cursor:pointer}
+.overview-projects-cta button:hover{border-color:var(--accent);color:var(--accent)}
+
+
+.work-wrap{padding:72px 0 86px}
+.work-head{margin-bottom:30px}
+.work-head h2{font-size:40px;margin:8px 0 10px;letter-spacing:-.03em}
+.work-head p{max-width:760px;color:var(--muted)}
+.role-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.role-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:28px 30px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,var(--surface),var(--surface2))}
+.role-title h3{font-size:28px;margin:0 0 6px}
+.role-title p{margin:0;color:var(--muted)}
+.role-badge{border:1px solid color-mix(in srgb,var(--accent) 40%,var(--border));background:color-mix(in srgb,var(--accent) 8%,transparent);color:var(--accent);font-weight:800;border-radius:999px;padding:7px 11px;font-size:12px;white-space:nowrap}
+.role-body{padding:30px}
+.role-intro{font-size:17px;color:var(--muted);max-width:900px;margin:0 0 24px}
+.responsibility-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.responsibility{background:var(--surface3);border:1px solid var(--border);border-radius:16px;padding:18px}
+.responsibility b{display:block;color:var(--accent);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.responsibility p{margin:0;color:var(--muted)}
+.work-tech{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.work-tech span{font-size:12px;font-weight:800;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));background:color-mix(in srgb,var(--accent) 8%,transparent);padding:6px 10px;border-radius:999px}
+@media(max-width:760px){
+  .role-top{flex-direction:column}
+  .responsibility-grid{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="container navbar">
+    <a class="brand" href="#" onclick="showTab('overview');return false;">JF // PORTFOLIO</a>
+    <div class="nav-right">
+      <div class="tab-nav" role="tablist">
+        <button id="tab-overview" class="tab-btn active" onclick="showTab('overview')">Overview</button>
+        <button id="tab-projects" class="tab-btn" onclick="showTab('projects')">Projects</button>
+        <button id="tab-work" class="tab-btn" onclick="showTab('work')">Work History</button>
+      </div>
+      <button class="theme" onclick="toggleTheme()" aria-label="Toggle theme">◐</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section id="panel-overview" class="tab-panel active">
+  <div class="container hero">
+    <div>
+      <div class="kicker">Business Automation • Windows Systems • AI Tool Developer</div>
+      <h1>Josh Floyd</h1>
+      <p>I work in IT support and build practical software that simplifies repetitive technical work, improves consistency, and gives operators a clear view of what is happening before, during, and after each task.</p>
+    </div>
+    <aside class="hero-card">
+      <h3>Background</h3>
+      <ul>
+        <li>4+ years working in IT across field deployment and support.</li>
+        <li>Installed and deployed POS systems onsite across 100+ stores.</li>
+        <li>Handled service calls, troubleshooting, and issue correction onsite as a Service Tech.</li>
+        <li>Now work in Support troubleshooting and correcting issues with POS equipment while also building automation projects with Python, PowerShell, & LLMs to streamline lengthy support tasks, software upgrades, installations, diagnostics, and maintenance workflows.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="container stats">
+    <div class="stat"><strong>4+</strong><span>Years in IT</span></div>
+    <div class="stat"><strong>100+</strong><span>Stores Deployed</span></div>
+    <div class="stat"><strong>10+</strong><span>Projects Built</span></div>
+    <div class="stat"><strong>Support + Automation</strong><span>Current Focus</span></div>
+  </div>
+
+
+
+  <div class="container background-section">
+    <div class="background-card">
+      <div>
+        <div class="kicker">// Background</div>
+        <h2>Field experience turned into practical automation.</h2>
+        <p>I started in the field installing and deploying POS systems onsite and handling service calls when stores needed hands-on support. That experience gave me a direct view of where technical workflows become repetitive, time-consuming, or difficult to manage at scale. I now work in support correcting issues and troubleshooting production environments, while building software projects as a hobby to automate lengthy tasks, software upgrades, installations, diagnostics, and maintenance workflows. For many of these projects I use Python together with large language models (LLMs) to help design, develop, refine, and troubleshoot practical automation tools.</p>
+      </div>
+      <div class="background-points">
+        <div class="background-point"><b>Field Deployment</b><span>Installed and deployed POS systems onsite</span></div>
+        <div class="background-point"><b>Service & Support</b><span>Handled service calls and now troubleshoot production issues</span></div>
+        <div class="background-point"><b>Scale</b><span>100+ store deployments</span></div>
+        <div class="background-point"><b>Project Development</b><span>Python and LLM-assisted development for automation tools and utilities</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container overview-featured">
+    <div class="overview-featured-head">
+      <div>
+        <div class="kicker">// Flagship Projects</div>
+        <h2>Featured work</h2>
+      </div>
+      <p>These featured projects highlight the range of software I build—from mobile-first planning tools and warehouse inventory to Windows administration and remote payment-device maintenance. Visit the Projects tab to see the full collect
